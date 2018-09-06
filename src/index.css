@@ -1,0 +1,157 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  --brandColor:darkcyan;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4 ,h5, h6 {
+  color:var(--brandColor);
+}
+
+.app {
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: inline-flex;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding:10px;
+  text-decoration: none;
+  border:1px solid;
+  margin-right: 6px;
+  color:inherit;
+  transition:color 300ms;
+}
+
+nav ul li:last-child a {
+  margin-right: 0;
+}
+
+nav ul li a.active {
+  color:var(--brandColor);
+}
+
+.app-footer {
+  border-top:1px solid gray;
+  text-align:center;
+  font-size: .9em;
+  margin:10px 0 0;
+}
+
+.todo {
+  background:linear-gradient(to bottom, transparent, whitesmoke);
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  align-items: center;
+}
+
+.todo span {
+  margin: 4px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-form {
+  max-width:600px;
+}
+
+.todo-form input[type=text] {
+  width:100%;
+  padding:6px;
+  margin: 4px 0;
+}
+
+.todo-form input[type=submit] {
+  all:unset;
+  box-sizing:border-box;
+  display: block;
+  margin: 1em 0 1em auto;
+  width:33%;
+  border:1px solid var(--brandColor);
+  text-align:center;
+  text-transform: uppercase;
+  padding:4px;
+  font-size: .75em;
+  cursor:pointer;
+  transition:280ms;
+}
+
+.todo-form input[type=submit]:focus,
+.todo-form input[type=submit]:hover {
+  background:var(--brandColor);
+  color:white;
+}
+
+.todo {
+  padding: 4px 0;
+}
+
+.todo .done {
+  text-decoration: line-through;
+}
+
+.todo-actions button {
+  all:unset;
+  font-size: .75em;
+  display:inline-block;
+  padding: 4px;
+  border:1px solid;
+  margin-left: 6px;
+  cursor:pointer;
+  text-transform: uppercase;
+}
+
+.filters a {
+  display:inline-block;
+  padding: 4px 10px;
+  border:1px solid;
+  margin-right: 10px;
+  text-decoration: none;
+  color:inherit;
+}
+
+button {
+  all:unset;
+  box-sizing:border-box;
+  border:1px solid black;
+  display:inline-block;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: .75em;
+  margin-right: 14px;
+  cursor:pointer;
+  transition: color 300ms, background 300ms;
+}
+
+button.small {
+  border:none;
+  padding:4px ;
+}
+
+.counter button:hover,
+.counter button:focus {
+  border-color:var(--brandColor);
+  background:var(--brandColor);
+  color:white;
+}
