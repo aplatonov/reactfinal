@@ -9,10 +9,12 @@ class TodoForm extends Component {
         success:false
     }
 
-    createTask = (label, done = false) => {
+    createTask = (label, description, date, done = false) => {
         return {
             label:label,
-            done:done,
+            description:description,
+            date:date,
+            done:Number.parseInt(done),
             id:uuid.v1()
         }
     }
@@ -38,7 +40,12 @@ class TodoForm extends Component {
         e.preventDefault();
         this.setState({success:false})
         if (this.isFormValid() && !this.props.todo) {
-            const task = this.createTask(this.labelInput.value.trim(), this.doneInput.checked)
+            const task = this.createTask(
+                this.labelInput.value.trim(),
+                this.descriptionInput.value.trim(),
+                this.dateInput.value.trim(),
+                this.doneInput.value
+            )
             this.props.addTodo(task)
             this.form.reset()
             this.labelInput.focus()
@@ -46,11 +53,13 @@ class TodoForm extends Component {
         } else if (this.isFormValid() && this.props.todo) {
             const todo = {
                 label:this.labelInput.value.trim(),
-                done:this.doneInput.checked,
+                description:this.descriptionInput.value.trim(),
+                date:this.dateInput.value.trim(),
+                done:Number.parseInt(this.doneInput.value),
                 id:this.props.todo.id
             }
            this.props.updateTodo(todo)
-           this.props.history.push('/todos')
+           this.props.history.push('/list')
         }
     }
 
@@ -63,10 +72,20 @@ class TodoForm extends Component {
                     <input defaultValue={(this.props.todo && this.props.todo.label) ? this.props.todo.label : ''} ref={ label => this.labelInput = label }  id='label' type='text' />
                 </div>
                 <div>
-                    <label htmlFor='done'><input
-                        defaultChecked={(this.props.todo && this.props.todo.done) ? true : false} 
-                        ref={ done => this.doneInput = done } 
-                        type='checkbox' id='done' /> Выполнено</label>
+                    <label htmlFor='description'>Описание задачи</label>
+                    <textarea defaultValue={(this.props.todo && this.props.todo.description) ? this.props.todo.description : ''} ref={ description => this.descriptionInput = description }  id='description' />
+                </div>
+                <div>
+                    <label htmlFor='date'>Срок</label>
+                    <input defaultValue={(this.props.todo && this.props.todo.date) ? this.props.todo.date : ''} ref={ date => this.dateInput = date }  id='date' type='text' />
+                </div>
+                <div>
+                    <label htmlFor='done'>Статус</label>
+                    <select defaultValue={(this.props.todo && this.props.todo.done) ? this.props.todo.done : 1} ref={done => this.doneInput = done } id="done">
+                        <option value="1">Выполнить</option>
+                        <option value="2">Выполняется</option>
+                        <option value="3">Выполнено</option>
+                    </select>
                 </div>
                 <input type='submit' value={this.props.todo ? 'Сохранить изменения' : 'Сохранить'} />
                 { this.state.success && <p onClick={ () => this.setState({success:false}) }>Задача успешно добавлена</p> }

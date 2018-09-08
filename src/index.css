@@ -82,6 +82,18 @@ nav ul li a.active {
   margin: 4px 0;
 }
 
+.todo-form textarea {
+  width:100%;
+  padding:6px;
+  margin: 4px 0;
+}
+
+.todo-form select {
+  width:100%;
+  padding:6px;
+  margin: 4px 0;
+}
+
 .todo-form input[type=submit] {
   all:unset;
   box-sizing:border-box;
@@ -107,19 +119,40 @@ nav ul li a.active {
   padding: 4px 0;
 }
 
+.todo .undone {
+  font-weight: bold;
+  color: red;
+}
+
 .todo .done {
   text-decoration: line-through;
 }
 
+.todo .process {
+  color: red;
+}
+
+.todo .description {
+  margin-left: auto;
+  font-style: italic;
+  font-size: .75em;
+}
+
 .todo-actions button {
   all:unset;
-  font-size: .75em;
+  font-size: 0.75em;
   display:inline-block;
   padding: 4px;
   border:1px solid;
   margin-left: 6px;
   cursor:pointer;
   text-transform: uppercase;
+}
+
+.todo-actions .symbols {
+  font-size: 1.50em;
+  padding: 1px;
+  border: none;
 }
 
 .filters a {
@@ -147,11 +180,4 @@ button {
 button.small {
   border:none;
   padding:4px ;
-}
-
-.counter button:hover,
-.counter button:focus {
-  border-color:var(--brandColor);
-  background:var(--brandColor);
-  color:white;
 }

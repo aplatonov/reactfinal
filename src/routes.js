@@ -11,12 +11,12 @@ export default [
         path:'/about', component:About
     },
     {
-        path:'/todos', component:TodoList, exact:true
+        path:'/list', component:TodoList, exact:true
     },
     {
-        path:'/todos/add', component:TodoForm, exact:true
+        path:'/list/add', component:TodoForm, exact:true
     },
     {
-        path:'/todos/edit', component:TodoForm, exact:true
+        path:'/list/edit', component:TodoForm, exact:true
     }
 ]

@@ -6,7 +6,7 @@ const Navigation = () => {
         <nav>
             <ul>
                 <li><NavLink exact activeClassName='active' to='/'>Home</NavLink></li>
-                <li><NavLink activeClassName='active' to='/todos'>Управление задачами</NavLink></li>
+                <li><NavLink activeClassName='active' to='/list'>Управление задачами</NavLink></li>
                 <li><NavLink activeClassName='active' to='/about'>About</NavLink></li>
             </ul>
         </nav>

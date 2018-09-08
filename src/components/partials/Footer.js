@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const Footer = (props) => {
     return (
         <footer className='app-footer'>
-            <p>{props.config.application} &mdash; <a target='_blank' href={props.config.website}>{props.config.author}</a></p>
+            <p>{props.config.application} - <a target='_blank' href={props.config.website}>{props.config.author}</a></p>
         </footer>
     )
 }

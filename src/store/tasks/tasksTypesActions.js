@@ -4,6 +4,8 @@ export const tasksTypes = {
     'TOGGLE_TODO_STATE':'TOGGLE_TODO_STATE',
     'UPDATE_TODO':'UPDATE_TODO',
     'SELECT_TODO':'SELECT_TODO',
+    'CHANGE_FILTER':'CHANGE_FILTER',
+    'CHANGE_SORT':'CHANGE_SORT',
     'RESET_TODO':'RESET_TODO'
 }
 
@@ -22,6 +24,12 @@ export const tasksActions = {
     },
     [tasksTypes.UPDATE_TODO]:(todo) => {
         return { type:tasksTypes.UPDATE_TODO, payload:todo }
+    },
+    [tasksTypes.CHANGE_FILTER]:(activeFilter) => {
+        return { type:tasksTypes.CHANGE_FILTER, activeFilter }
+    },
+    [tasksTypes.CHANGE_SORT]:(sort) => {
+        return { type:tasksTypes.CHANGE_SORT, sort }
     },
     [tasksTypes.RESET_TODO]:() => {
         return { type:tasksTypes.RESET_TODO }

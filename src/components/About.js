@@ -9,6 +9,14 @@ const About = (props) => {
             	автор Платонов Антон<br />
             	сентябрь 2018
         	</p>
+            <hr />
+            <p>
+                Первоначальная версия приложения <a href="https://github.com/aplatonov/reactapp/tree/task_6">https://github.com/aplatonov/reactapp/tree/task_6</a>
+                <br />К сожалению, в нем не удалось заставить работать react-router вместе с redux,
+                <br />Для итоговой работы взял за основу <a href="https://github.com/blokche/todolist-react-redux">https://github.com/blokche/todolist-react-redux</a>, 
+                <br />перенес в него функционал, добавил работу с redux
+            </p>
+            <br />
         </section>
     )
 }
